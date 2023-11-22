@@ -19,7 +19,6 @@ class Coffe_menu(QMainWindow):
         self.cur = self.con.cursor()
 
         self.result = self.cur.execute("SELECT * FROM information").fetchall()
-        print(self.result)
 
         self.con.close()
         self.information_coffe.setRowCount(len(self.result))

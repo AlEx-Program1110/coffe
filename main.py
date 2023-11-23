@@ -28,9 +28,11 @@ class Coffe_menu(QMainWindow):
 
         self.add: QPushButton
         self.change: QPushButton
+        self.update: QPushButton
 
         self.add.clicked.connect(self.push_add)
         self.change.clicked.connect(self.push_change)
+        self.update.clicked.connect(self.push_update)
 
     def push_add(self):
         print('add')
@@ -42,6 +44,21 @@ class Coffe_menu(QMainWindow):
         self.ex = Dialog_add_change(self, 1)
         self.ex.show()
 
+    def push_update(self):
+        self.information_coffe.setColumnCount(7)
+        self.information_coffe.setHorizontalHeaderLabels(
+            ["ID", "название сорта", "степень обжарки", "молотый/в зернах", "описание вкуса", "цена", "объем упаковки"])
+        self.con = sqlite3.connect("coffee.sqlite")
+        self.cur = self.con.cursor()
+
+        self.result = self.cur.execute("SELECT * FROM information").fetchall()
+
+        self.con.close()
+        self.information_coffe.setRowCount(len(self.result))
+        for i in range(len(self.result)):
+            for j in range(len(self.result[i])):
+                self.information_coffe.setItem(i, j, QTableWidgetItem(str(self.result[i][j])))
+
 
 class Dialog_add_change(QMainWindow):
     def __init__(self, parent, move):
@@ -50,11 +67,17 @@ class Dialog_add_change(QMainWindow):
 
         self.data_new: QLineEdit
         self.label: QLabel
+        self.save_button: QPushButton
+
+        self.save_button.clicked.connect(self.push_save)
 
         if move:
             self.label.setText('Измените')
         else:
             self.label.setText('Добавьте новое кофе')
+
+    def push_save(self):
+        self.close()
 
 
 if __name__ == '__main__':

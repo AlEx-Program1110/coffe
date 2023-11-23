@@ -17,10 +17,10 @@
    <widget class="QLineEdit" name="data_new">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>60</y>
-      <width>113</width>
-      <height>20</height>
+      <x>40</x>
+      <y>50</y>
+      <width>221</width>
+      <height>21</height>
      </rect>
     </property>
    </widget>
@@ -29,12 +29,25 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>47</width>
-      <height>13</height>
+      <width>261</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_button">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Сохранить</string>
     </property>
    </widget>
   </widget>

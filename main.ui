@@ -37,23 +37,10 @@
      <string>Добавить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="change">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>470</y>
-      <width>151</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Изменить</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="update">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>200</x>
       <y>470</y>
       <width>141</width>
       <height>71</height>
